@@ -27,9 +27,11 @@ spec:
             command: ["/bin/sh", "-c", "rm /homework/index.html"]
       volumeMounts:
       - mountPath: /homework
-        name: workdir    
+        name: mypd    
       - name: config-volume
         mountPath: /etc/nginx/conf.d          
+      - name: cm-volume
+        mountPath: "/homework/conf"
       ports:
       - containerPort: 80
     initContainers:
@@ -42,9 +44,17 @@ spec:
       - http://info.cern.ch
       volumeMounts:
       - mountPath: /init
-        name: workdir  
+        name: mypd  
     volumes:
-      - name: workdir
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: new-pvc
+      - name: cm-volume
+        configMap:
+          name: test-config
+          items:
+            - key: foo
+              path: foo.txt
       - name: config-volume
         configMap:
           name: custom-nginx-config
