@@ -2,7 +2,7 @@
      kind: ConfigMap
      metadata:
        name: custom-nginx-config
-       namespace: default
+       namespace: homework
      data:
       default.conf: |
         server {
