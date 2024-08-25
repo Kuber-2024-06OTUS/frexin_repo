@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx-deployment
+ labels:
+   app: {{ .Values.appName }}
+spec:
+ replicas: {{ .Values.replicaCount }}
+ selector:
+   matchLabels:
+     app: {{ .Values.appName }}
+ template:
+   metadata:
+     labels:
+       app: {{ .Values.appName }}
+   spec:
+    serviceAccountName: monitoring
+    containers:
+    - name: nginx
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      {{- if .Values.probs.enabled  }}
+      readinessProbe:
+        httpGet:
+          path: {{ .Values.probs.path }}
+          port: {{ .Values.probs.port }}
+      {{- end }}
+      lifecycle:
+        preStop:
+          exec:
+            command: ["/bin/sh", "-c", "rm /homework/index.html"]
+      volumeMounts:
+      - mountPath: /homework
+        name: mypd    
+      - name: config-volume
+        mountPath: /etc/nginx/conf.d          
+      - name: cm-volume
+        mountPath: "/homework/conf"
+      ports:
+      - containerPort: {{ .Values.service.port }}
+    initContainers:
+    - name: html
+      image: busybox:1.28
+      command: 
+      - wget
+      - "-O"
+      - "/init/index.html"
+      - http://info.cern.ch
+      volumeMounts:
+      - mountPath: /init
+        name: mypd  
+    volumes:
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: new-pvc
+      - name: cm-volume
+        configMap:
+          name: test-config
+          items:
+            - key: foo
+              path: foo.txt
+      - name: config-volume
+        configMap:
+          name: custom-nginx-config
+          items:
+            - key: default.conf
+              path: default.conf
+ strategy:
+   type: RollingUpdate
+   rollingUpdate:
+     maxUnavailable: {{ .Values.maxUnavailable }}
