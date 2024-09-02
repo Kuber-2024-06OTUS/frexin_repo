@@ -1,0 +1,44 @@
+replicaCount: 4
+maxUnavailable: 1
+appName: nginx
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.14.2"
+
+serviceAccount: 
+  enabled: true
+  
+probs:
+  enabled: true
+  path: /index.html
+  port: 80
+
+pvc:
+  name: new-pvc
+  storageSize: 4Gi
+
+service:
+  name: app-service
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+  - host: homework.otus
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: app-service
+              port:
+                number: 80

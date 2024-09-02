@@ -1,0 +1,18 @@
+image:
+  tag: "latest"
+controller:
+  replicaCount: 0
+broker:
+  replicaCount: 1
+  persistence:
+    size: 1Gi
+listeners:
+  client:
+    protocol: PLAINTEXT
+  controller:
+    protocol: PLAINTEXT
+zookeeper:
+  enabled: true
+  replicaCount: 1    
+kraft:
+  enabled: false
