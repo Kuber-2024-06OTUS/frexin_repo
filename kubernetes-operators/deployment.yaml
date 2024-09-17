@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-mysql-deployment
+  namespace: homework
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-oper
+  template:
+    metadata:
+      labels:
+        app: mysql-oper
+    spec:
+      containers:
+      - name: mysql-oper
+        image: roflmaoinmysoul/mysql-operator:1.0.0
+      serviceAccountName: sa-api-access

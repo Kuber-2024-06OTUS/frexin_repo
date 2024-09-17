@@ -1,0 +1,9 @@
+apiVersion: otus.homework/v1
+kind: MySQL
+metadata:
+  name: custom-mysql
+spec:
+  image: mysql:latest
+  database: otus-db
+  password: qwerty
+  storage_size: 10Gi
