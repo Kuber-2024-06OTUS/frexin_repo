@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: nginx-service-monitor
+  labels:
+    team: backend
+spec:
+  selector:
+    matchLabels:
+      app: nginx-service
+  endpoints: 
+  - port: metrics
