@@ -1,0 +1,702 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    checksum/config: 0e9cbd0ea8e24e32f7dfca5bab17a2ba05652642f0a09a4882833ae88e4cc4a3
+    checksum/sc-dashboard-provider-config: e70bf6a851099d385178a76de9757bb0bef8299da6d8443602590e44f05fdf24
+    checksum/secret: 032056e9c62bbe9d1daa41ee49cd3d9524c076f51ca4c65adadf4ef08ef28712
+    kubectl.kubernetes.io/default-container: grafana
+  creationTimestamp: "2024-09-26T18:00:42Z"
+  generateName: prometheus-operator-grafana-6645cd6476-
+  labels:
+    app.kubernetes.io/instance: prometheus-operator
+    app.kubernetes.io/name: grafana
+    pod-template-hash: 6645cd6476
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:checksum/config: {}
+          f:checksum/sc-dashboard-provider-config: {}
+          f:checksum/secret: {}
+          f:kubectl.kubernetes.io/default-container: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"bebd8e02-c19e-4b8a-ac1c-7e7f4bc0bf2d"}: {}
+      f:spec:
+        f:automountServiceAccountToken: {}
+        f:containers:
+          k:{"name":"grafana"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"GF_PATHS_DATA"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"GF_PATHS_LOGS"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"GF_PATHS_PLUGINS"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"GF_PATHS_PROVISIONING"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"GF_SECURITY_ADMIN_PASSWORD"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"GF_SECURITY_ADMIN_USER"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"POD_IP"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:fieldRef: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:livenessProbe:
+              .: {}
+              f:failureThreshold: {}
+              f:httpGet:
+                .: {}
+                f:path: {}
+                f:port: {}
+                f:scheme: {}
+              f:initialDelaySeconds: {}
+              f:periodSeconds: {}
+              f:successThreshold: {}
+              f:timeoutSeconds: {}
+            f:name: {}
+            f:ports:
+              .: {}
+              k:{"containerPort":3000,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9094,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9094,"protocol":"UDP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+            f:readinessProbe:
+              .: {}
+              f:failureThreshold: {}
+              f:httpGet:
+                .: {}
+                f:path: {}
+                f:port: {}
+                f:scheme: {}
+              f:periodSeconds: {}
+              f:successThreshold: {}
+              f:timeoutSeconds: {}
+            f:resources: {}
+            f:securityContext:
+              .: {}
+              f:allowPrivilegeEscalation: {}
+              f:capabilities:
+                .: {}
+                f:drop: {}
+              f:seccompProfile:
+                .: {}
+                f:type: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/etc/grafana/grafana.ini"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:subPath: {}
+              k:{"mountPath":"/etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:subPath: {}
+              k:{"mountPath":"/etc/grafana/provisioning/datasources"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+              k:{"mountPath":"/tmp/dashboards"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+              k:{"mountPath":"/var/lib/grafana"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+          k:{"name":"grafana-sc-dashboard"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"FOLDER"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"LABEL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"LABEL_VALUE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"METHOD"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"NAMESPACE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_METHOD"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_PASSWORD"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"REQ_URL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_USERNAME"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"RESOURCE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:securityContext:
+              .: {}
+              f:allowPrivilegeEscalation: {}
+              f:capabilities:
+                .: {}
+                f:drop: {}
+              f:seccompProfile:
+                .: {}
+                f:type: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/tmp/dashboards"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+          k:{"name":"grafana-sc-datasources"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"FOLDER"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"LABEL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"LABEL_VALUE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"METHOD"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_METHOD"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_PASSWORD"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"REQ_URL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"REQ_USERNAME"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"RESOURCE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:securityContext:
+              .: {}
+              f:allowPrivilegeEscalation: {}
+              f:capabilities:
+                .: {}
+                f:drop: {}
+              f:seccompProfile:
+                .: {}
+                f:type: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/etc/grafana/provisioning/datasources"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext:
+          .: {}
+          f:fsGroup: {}
+          f:runAsGroup: {}
+          f:runAsNonRoot: {}
+          f:runAsUser: {}
+        f:serviceAccount: {}
+        f:serviceAccountName: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"config"}:
+            .: {}
+            f:configMap:
+              .: {}
+              f:defaultMode: {}
+              f:name: {}
+            f:name: {}
+          k:{"name":"sc-dashboard-provider"}:
+            .: {}
+            f:configMap:
+              .: {}
+              f:defaultMode: {}
+              f:name: {}
+            f:name: {}
+          k:{"name":"sc-dashboard-volume"}:
+            .: {}
+            f:emptyDir: {}
+            f:name: {}
+          k:{"name":"sc-datasources-volume"}:
+            .: {}
+            f:emptyDir: {}
+            f:name: {}
+          k:{"name":"storage"}:
+            .: {}
+            f:emptyDir: {}
+            f:name: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2024-09-26T18:00:42Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"PodReadyToStartContainers"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:hostIPs: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.112.128.42"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    subresource: status
+    time: "2024-10-08T19:56:50Z"
+  name: prometheus-operator-grafana-6645cd6476-26mkx
+  namespace: monitoring
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: prometheus-operator-grafana-6645cd6476
+    uid: bebd8e02-c19e-4b8a-ac1c-7e7f4bc0bf2d
+  resourceVersion: "5420926"
+  uid: d8c575e3-b995-4550-82c7-38ae7c696640
+spec:
+  automountServiceAccountToken: true
+  containers:
+  - env:
+    - name: METHOD
+      value: WATCH
+    - name: LABEL
+      value: grafana_dashboard
+    - name: LABEL_VALUE
+      value: "1"
+    - name: FOLDER
+      value: /tmp/dashboards
+    - name: RESOURCE
+      value: both
+    - name: NAMESPACE
+      value: ALL
+    - name: REQ_USERNAME
+      valueFrom:
+        secretKeyRef:
+          key: admin-user
+          name: prometheus-operator-grafana
+    - name: REQ_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: admin-password
+          name: prometheus-operator-grafana
+    - name: REQ_URL
+      value: http://localhost:3000/api/admin/provisioning/dashboards/reload
+    - name: REQ_METHOD
+      value: POST
+    image: quay.io/kiwigrid/k8s-sidecar:1.27.4
+    imagePullPolicy: IfNotPresent
+    name: grafana-sc-dashboard
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /tmp/dashboards
+      name: sc-dashboard-volume
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7jdpr
+      readOnly: true
+  - env:
+    - name: METHOD
+      value: WATCH
+    - name: LABEL
+      value: grafana_datasource
+    - name: LABEL_VALUE
+      value: "1"
+    - name: FOLDER
+      value: /etc/grafana/provisioning/datasources
+    - name: RESOURCE
+      value: both
+    - name: REQ_USERNAME
+      valueFrom:
+        secretKeyRef:
+          key: admin-user
+          name: prometheus-operator-grafana
+    - name: REQ_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: admin-password
+          name: prometheus-operator-grafana
+    - name: REQ_URL
+      value: http://localhost:3000/api/admin/provisioning/datasources/reload
+    - name: REQ_METHOD
+      value: POST
+    image: quay.io/kiwigrid/k8s-sidecar:1.27.4
+    imagePullPolicy: IfNotPresent
+    name: grafana-sc-datasources
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/grafana/provisioning/datasources
+      name: sc-datasources-volume
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7jdpr
+      readOnly: true
+  - env:
+    - name: POD_IP
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.podIP
+    - name: GF_SECURITY_ADMIN_USER
+      valueFrom:
+        secretKeyRef:
+          key: admin-user
+          name: prometheus-operator-grafana
+    - name: GF_SECURITY_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: admin-password
+          name: prometheus-operator-grafana
+    - name: GF_PATHS_DATA
+      value: /var/lib/grafana/
+    - name: GF_PATHS_LOGS
+      value: /var/log/grafana
+    - name: GF_PATHS_PLUGINS
+      value: /var/lib/grafana/plugins
+    - name: GF_PATHS_PROVISIONING
+      value: /etc/grafana/provisioning
+    image: docker.io/grafana/grafana:11.2.0
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 10
+      httpGet:
+        path: /api/health
+        port: 3000
+        scheme: HTTP
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 30
+    name: grafana
+    ports:
+    - containerPort: 3000
+      name: grafana
+      protocol: TCP
+    - containerPort: 9094
+      name: gossip-tcp
+      protocol: TCP
+    - containerPort: 9094
+      name: gossip-udp
+      protocol: UDP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /api/health
+        port: 3000
+        scheme: HTTP
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      seccompProfile:
+        type: RuntimeDefault
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/grafana/grafana.ini
+      name: config
+      subPath: grafana.ini
+    - mountPath: /var/lib/grafana
+      name: storage
+    - mountPath: /tmp/dashboards
+      name: sc-dashboard-volume
+    - mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
+      name: sc-dashboard-provider
+      subPath: provider.yaml
+    - mountPath: /etc/grafana/provisioning/datasources
+      name: sc-datasources-volume
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7jdpr
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: cl1vdrk0jb9kghvflo6u-ysyt
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext:
+    fsGroup: 472
+    runAsGroup: 472
+    runAsNonRoot: true
+    runAsUser: 472
+  serviceAccount: prometheus-operator-grafana
+  serviceAccountName: prometheus-operator-grafana
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - configMap:
+      defaultMode: 420
+      name: prometheus-operator-grafana
+    name: config
+  - emptyDir: {}
+    name: storage
+  - emptyDir: {}
+    name: sc-dashboard-volume
+  - configMap:
+      defaultMode: 420
+      name: prometheus-operator-grafana-config-dashboards
+    name: sc-dashboard-provider
+  - emptyDir: {}
+    name: sc-datasources-volume
+  - name: kube-api-access-7jdpr
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2024-10-08T19:55:59Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2024-09-26T18:00:42Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2024-10-08T19:56:50Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2024-10-08T19:56:50Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2024-09-26T18:00:42Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://80a6f6e6b8c00276612cd4deab002f57d57c1b1be09a60a283a360cf8fa8ef75
+    image: docker.io/grafana/grafana:11.2.0
+    imageID: docker.io/grafana/grafana@sha256:408afb9726de5122b00a2576763a8a57a3c86d5b0eff5305bc994ceb3eb96c3f
+    lastState:
+      terminated:
+        containerID: containerd://eddd41ae7910cc578b4da7b04f31b74cc55e2024ff49a31468b3824e6cbebdf4
+        exitCode: 0
+        finishedAt: "2024-09-26T21:51:16Z"
+        reason: Completed
+        startedAt: "2024-09-26T18:01:19Z"
+    name: grafana
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2024-10-08T19:55:58Z"
+  - containerID: containerd://39e7c22edda00f9510ec515efa0dd61d4f9729341a7c7f4a57005cb208c7745a
+    image: quay.io/kiwigrid/k8s-sidecar:1.27.4
+    imageID: quay.io/kiwigrid/k8s-sidecar@sha256:f6ed71d0f9f1175df8c4b8c674b339a74785384d25fdad21b3c3dc0554109286
+    lastState:
+      terminated:
+        containerID: containerd://be7ef4387b3d86fba91758946c26fea0bd3bc81aab959b95e13ad0dbe8025708
+        exitCode: 0
+        finishedAt: "2024-09-26T21:51:16Z"
+        reason: Completed
+        startedAt: "2024-09-26T18:00:52Z"
+    name: grafana-sc-dashboard
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2024-10-08T19:55:53Z"
+  - containerID: containerd://97028dbb6a66c8c6dd7864f5d133e10ebcbdd287a935215fef96a0a34ea2fded
+    image: quay.io/kiwigrid/k8s-sidecar:1.27.4
+    imageID: quay.io/kiwigrid/k8s-sidecar@sha256:f6ed71d0f9f1175df8c4b8c674b339a74785384d25fdad21b3c3dc0554109286
+    lastState:
+      terminated:
+        containerID: containerd://51c7cfdbcc118a3ff17b0c6ffbb893a227008cdd8ae2cbaf73f069061de547ab
+        exitCode: 0
+        finishedAt: "2024-09-26T21:51:16Z"
+        reason: Completed
+        startedAt: "2024-09-26T18:00:53Z"
+    name: grafana-sc-datasources
+    ready: true
+    restartCount: 1
+    started: true
+    state:
+      running:
+        startedAt: "2024-10-08T19:55:55Z"
+  hostIP: 10.131.0.28
+  hostIPs:
+  - ip: 10.131.0.28
+  phase: Running
+  podIP: 10.112.128.42
+  podIPs:
+  - ip: 10.112.128.42
+  qosClass: BestEffort
+  startTime: "2024-09-26T18:00:42Z"
