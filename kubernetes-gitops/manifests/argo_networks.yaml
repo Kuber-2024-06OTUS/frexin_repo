@@ -1,0 +1,8 @@
+project: default
+source:
+  repoURL: 'git@github.com:Kuber-2024-06OTUS/frexin_repo.git'
+  path: kubernetes-networks
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: homework

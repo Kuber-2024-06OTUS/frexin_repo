@@ -1,0 +1,18 @@
+project: default
+source:
+  repoURL: 'git@github.com:Kuber-2024-06OTUS/frexin_repo.git'
+  path: kubernetes-templating/mychart
+  targetRevision: HEAD
+  helm:
+    parameters:
+      - name: replicaCount
+        value: '2'
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: homeworkhelm
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+  syncOptions:
+    - CreateNamespace=true
